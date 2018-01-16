@@ -102,6 +102,11 @@ export default {
       default: 'span'
     },
 
+    noparse: {
+      type: Boolean,
+      default: true
+    },
+
     /**
      * Additional or overridden networks.
      * Default to BaseNetworks
@@ -158,7 +163,8 @@ export default {
         .replace(/@quote/g, encodeURIComponent(this.quote))
         .replace(/@hashtags/g, this.hashtags)
         .replace(/@media/g, this.media)
-        .replace(/@twitteruser/g, this.twitterUser ? '&via=' + this.twitterUser : '');
+        .replace(/@twitteruser/g, this.twitterUser ? '&via=' + this.twitterUser : '')
+        .replace(/@noparse/g, this.noparse);
     },
 
     /**

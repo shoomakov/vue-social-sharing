@@ -60,7 +60,7 @@
   },
 
   "vk": {
-    "sharer": "https://vk.com/share.php?url=@url&title=@title&description=@description&image=@media&noparse=true",
+    "sharer": "https://vk.com/share.php?url=@url&title=@title&description=@description&image=@media&noparse=@noparse",
     "type": "popup"
   },
 

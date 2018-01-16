@@ -63,7 +63,7 @@ var skype = {"sharer":"https://web.skype.com/share?url=@description%0D%0A@url","
 var telegram = {"sharer":"https://t.me/share/url?url=@url&text=@description","type":"popup"};
 var twitter = {"sharer":"https://twitter.com/intent/tweet?text=@title&url=@url&hashtags=@hashtags@twitteruser","type":"popup"};
 var viber = {"sharer":"viber://forward?text=@url @description","type":"direct"};
-var vk = {"sharer":"https://vk.com/share.php?url=@url&title=@title&description=@description&image=@media&noparse=true","type":"popup"};
+var vk = {"sharer":"https://vk.com/share.php?url=@url&title=@title&description=@description&image=@media&noparse=@noparse","type":"popup"};
 var weibo = {"sharer":"http://service.weibo.com/share/share.php?url=@url&title=@title","type":"popup"};
 var whatsapp = {"sharer":"whatsapp://send?text=@description%0D%0A@url","type":"direct","action":"share/whatsapp/share"};
 var sms = {"sharer":"sms:?body=@url%20@description","type":"direct"};
@@ -182,6 +182,11 @@ var SocialSharing = {
       default: 'span'
     },
 
+    noparse: {
+      type: Boolean,
+      default: true
+    },
+
     /**
      * Additional or overridden networks.
      * Default to BaseNetworks
@@ -238,7 +243,8 @@ var SocialSharing = {
         .replace(/@quote/g, encodeURIComponent(this.quote))
         .replace(/@hashtags/g, this.hashtags)
         .replace(/@media/g, this.media)
-        .replace(/@twitteruser/g, this.twitterUser ? '&via=' + this.twitterUser : '');
+        .replace(/@twitteruser/g, this.twitterUser ? '&via=' + this.twitterUser : '')
+        .replace(/@noparse/g, this.noparse);
     },
 
     /**
